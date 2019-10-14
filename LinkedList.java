@@ -1,5 +1,5 @@
 public class LinkedList {
-
+	
 	class Node{
 		int data;
 		Node next;
@@ -15,11 +15,13 @@ public class LinkedList {
 		start=null;
 	}
 	
-	//INSERT AT THE BEG OF THE LL
-	void insertBeg(int data){
+	//INSERT AT THE BEG OF THE LinkedList
+	void insertBeg(int data)
+	{
 		start = insertBegInner(start,data);
 	}
-	private Node insertBegInner(Node start, int data) {
+	private Node insertBegInner(Node start, int data) 
+	{
 		if (start==null){
 			return new Node(data);
 		}
@@ -33,10 +35,12 @@ public class LinkedList {
 	
 	
 	//INSERT AT THE END
-	void insertEnd(int data){
+	void insertEnd(int data)
+	{
 		start=insertEndInner(start,data);
 	}
-	private Node insertEndInner(Node start,int data) {
+	private Node insertEndInner(Node start,int data)
+	{
 		if(start==null)
 			return new Node(data);
 		Node new_node=new Node(data);
@@ -50,24 +54,29 @@ public class LinkedList {
 	}
 	
 	
-	//INSERT MID
-	void insertMid(int data,int pos){
-		if(pos==1){
+	//INSERT At The MID
+	void insertMid(int data,int pos)
+	{
+		if(pos==1)
+		{
 			start=insertBegInner(start, data);
 			return;
 		}
 		
 		start=insertMidInner(start,data,pos);
 	}
-	private Node insertMidInner(Node start, int data, int pos) {
-		if(start==null){
+	private Node insertMidInner(Node start, int data, int pos) 
+	{
+		if(start==null)
+		{
 			System.out.println("Cannot insert at the desired position coz the list is already empty!! Inserting to the first position");
 			return new Node(data);
 		}
 		
 		Node temp=start;
 		int count =1;
-		while(count<pos){
+		while(count<pos)
+		{
 			temp=temp.next;
 			count++;
 			if(temp==null){
@@ -86,11 +95,14 @@ public class LinkedList {
 	
 	
 	//DELETION FROM BEG
-	void delBeg(){
+	void delBeg()
+	{
 		start=delBegInner(start);
 	}	
-	private Node delBegInner(Node start) {
-		if(start==null){
+	private Node delBegInner(Node start)
+	{
+		if(start==null)
+		{
 			System.out.println("Linked List already empty");
 			return null;
 		}
@@ -105,24 +117,28 @@ public class LinkedList {
 	
 	
 	//DELETE FROM END
-	void delEnd(){
+	void delEnd()
+	{
 		start=delEndInner(start);
 	}
+	private Node delEndInner(Node start)
+	{
 	
-	private Node delEndInner(Node start) {
-	
-		if(start==null){
+		if(start==null)
+		{
 			System.out.println("Linked List already empty");
 			return null;
 		}
-		else if(start.next==null){
+		else if(start.next==null)
+		{
 			System.out.println("Element deleted is:"+start.data);
 			start=start.next;
 			return null;
 		}
 		
 		Node temp=start;
-		while(temp.next.next!=null){
+		while(temp.next.next!=null)
+		{
 			temp=temp.next;
 		}
 		System.out.println("Element deleted is:"+temp.next.data);
@@ -134,11 +150,12 @@ public class LinkedList {
 	
 	
 	 //DELETE FROM MID
-	void delMid(int pos){
+	void delMid(int pos)
+	{
 		start=delMidInner(start,pos);
 	}
-	
-	private Node delMidInner(Node start,int pos) {
+	private Node delMidInner(Node start,int pos)
+	{
 		int count =0;
 		Node temp=start;
 		if(start==null){
@@ -160,13 +177,16 @@ public class LinkedList {
 	}
 
 	//DISPLAY lINKED LIST
-	void disp(){
-		if(start==null){
+	void disp()
+	{
+		if(start==null)
+		{
 			System.out.println("Linked List Empty");
 			return;
 		}
 		Node temp=start;
-		while(temp.next!=null){
+		while(temp.next!=null)
+		{
 			System.out.print(temp.data+"->");
 			temp=temp.next;
 		}
@@ -175,10 +195,12 @@ public class LinkedList {
 	}
 	
 	//DISPLAY RECURSIVELY
-	void dispInReverseWithoutReversing(){
+	void dispInReverseWithoutReversing()
+	{
 		dispRec(start);
 	}
-	private void dispRec(Node start) {
+	private void dispRec(Node start) 
+	{
 		if(start==null)
 			return;
 		dispRec(start.next);
@@ -187,10 +209,13 @@ public class LinkedList {
 	
 	
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) 
+	{
 		
 		LinkedList linkedList=new LinkedList();
 		//linkedList.disp();
+		//output : 
+		//Empty List
 		linkedList.insertBeg(6);
 		linkedList.insertBeg(5);
 		linkedList.insertBeg(4);
@@ -201,7 +226,8 @@ public class LinkedList {
 		
 		
 		
-		linkedList.dispInReverseWithoutReversing();//op //6->5->4->3->2->1
+		linkedList.dispInReverseWithoutReversing();
+		//output: 6->5->4->3->2->1
 		
 		System.out.println();
 		
